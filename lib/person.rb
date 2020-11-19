@@ -2,7 +2,7 @@
 require 'pry'
 
 class Person
-    attr_accessor :bank_account, :happiness, :hygiene
+    attr_accessor :bank_account, :happiness, :hygiene, :topic 
     attr_reader :name #getter 
     #attr_writer = setter
 
@@ -11,6 +11,8 @@ class Person
         @bank_account = 25
         @happiness = 8
         @hygiene = 8
+       
+        
     end 
 
    def happiness
@@ -50,8 +52,27 @@ def work_out
     "♪ another one bites the dust ♫"
 end 
 
+def call_friend(friend)
+    self.happiness += 3
+    friend.happiness += 3
+    "Hi #{friend.name}! It's #{self.name}. How are you?"
+end 
+
+def start_conversation (person, topic)
+    if topic == "politics"
+        self.happiness -= 2
+        person.happiness -= 2
+    "blah blah partisan blah lobbyist"
+elsif topic == "weather"
+        self.happiness += 1
+        person.happiness +=1
+        "blah blah sun blah rain"
+else 
+        "blah blah blah blah blah" 
+end
+end 
+
 
 
 end 
-person = Person.new("Brian")
-
+friend = Person.new("Brian")
