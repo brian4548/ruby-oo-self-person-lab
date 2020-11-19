@@ -1,9 +1,7 @@
-# your code goes here
-require 'pry'
-
 class Person
-    attr_accessor :bank_account, :happiness, :hygiene
-    attr_reader :name
+    attr_accessor :bank_account, :happiness, :hygiene, :friend, :politics, :weather, :other
+    attr_reader :name #getter 
+    #attr_writer = setter
 
     def initialize (name)
         @name = name
@@ -12,7 +10,58 @@ class Person
         @hygiene = 8
     end 
 
-end
+   def happiness
+        @happiness = 10 if @happiness > 10 
+        @happiness = 0 if @happiness < 0
+        @happiness
+    end
 
-person = Person.new("Brian")
+    def hygiene
+    @hygiene = 10 if @hygiene > 10 
+    @hygiene = 0 if @hygiene < 0
+    @hygiene
+    end
+
+    def happy?
+    happiness > 7 
+    end 
+
+    def clean?
+    hygiene > 7 
+    end 
+
+    def get_paid(salary)
+    #@bank_account += salary
+    self.bank_account += salary
+    "all about the benjamins"
+    end 
+
+    def take_bath
+    self.hygiene += 4 
+    "♪ Rub-a-dub just relaxing in the tub ♫"
+    end 
+
+    def work_out
+    self.happiness += 2
+    self.hygiene -= 3 
+    "♪ another one bites the dust ♫"
+    end 
+
+    def call_friend(friend)
+        self.happiness += 3
+        friend.happiness += 3
+        "Hi #{friend.name}! It's #{self.name}. How are you?"
+    end
+
+    def start_conversation(person, topic)
+        if topic = "politics"
+            both = self.happiness + person.happiness
+            both -= 4
+            "blah blah partisan blah lobbyist"
+        end
+        
+    end
+    
+
+end 
 
